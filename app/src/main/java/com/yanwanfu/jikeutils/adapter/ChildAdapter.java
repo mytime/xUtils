@@ -51,6 +51,7 @@ public class ChildAdapter extends BaseAdapter {
         if (convertView == null){
             convertView = inflater.inflate(R.layout.child_item,null);
             viewHolder = new ViewHolder();
+
             x.view().inject(viewHolder,convertView);
             convertView.setTag(viewHolder);
 

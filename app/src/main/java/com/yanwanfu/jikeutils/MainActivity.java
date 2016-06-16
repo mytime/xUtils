@@ -15,12 +15,15 @@ import org.xutils.view.annotation.ContentView;
 import org.xutils.view.annotation.ViewInject;
 import org.xutils.x;
 
-// activity注入
+/**
+ * xUtils 框架应用示例
+ */
 
+// activity注入
 @ContentView(R.layout.activity_main)
 public class MainActivity extends AppCompatActivity {
 
-    // 控件注解
+    // 控件注入
     @ViewInject(R.id.viewpager)
     ViewPager viewPager;
 
@@ -28,6 +31,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //setContentView(R.layout.activity_main);
+
+        // 生命使用注入
         x.view().inject(this);
 
         // 设置adapter
@@ -45,7 +50,6 @@ public class MainActivity extends AppCompatActivity {
                         return new DBFragment();
                 }
 
-
                 return null;
             }
 
@@ -54,6 +58,9 @@ public class MainActivity extends AppCompatActivity {
                 return 4;
             }
 
+            /**
+             * 设置tag 标题
+             */
             @Override
             public CharSequence getPageTitle(int position) {
                 switch (position){
